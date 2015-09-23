@@ -1,0 +1,14 @@
+/nbproject/
+/build/
+/dist/
+/libraries/nblibraries.properties
+build.xml
+manifest.mf
+
+
+/bin/
+.classpath
+.settings
+.project
+
+.gradle

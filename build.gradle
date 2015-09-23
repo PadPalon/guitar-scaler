@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'joda-time:joda-time:2.8.1'
+    
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.google.inject:guice:4.0'
+    compile 'com.google.code.findbugs:jsr305:3.0.0'
+    
+    compile 'com.h2database:h2:1.4.187'
+}
+
+task copyDependencies(type: Copy) {
+    into "$buildDir/libs/lib"
+    from configurations.runtime
+}
