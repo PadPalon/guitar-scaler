@@ -51,6 +51,7 @@ public class Transcriber {
 		validateTranscriber();
 		Optional<Scale> scale = sequence.getScale();
 		if(scale.isPresent() && !chromatic) {
+			validateSequenceAgainstScale(scale.get());
 			return transcribeByScale(scale.get());
 		} else {
 			return transcribeChromatic();
@@ -60,6 +61,14 @@ public class Transcriber {
 	private void validateTranscriber() {
 		if(steps == null) {
 			throw new IllegalStateException("Steps need to be set in transcriber");
+		}
+	}
+
+	private void validateSequenceAgainstScale(Scale scale) {
+		for(Note note: sequence) {
+			if(!scale.contains(note)) {
+				throw new IllegalStateException("Sequence contains non-scale notes");
+			}
 		}
 	}
 
