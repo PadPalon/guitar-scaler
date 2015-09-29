@@ -5,7 +5,6 @@ import java.util.Map;
 import ch.neukom.guitarscaler.Note;
 
 public class GuitarScaler {
-
 	public static void main(String[] args) {
 		ScaleReader scaleReader = new ScaleReader();
 		Map<String, ScaleDefinition> scales = scaleReader.readScales();
@@ -18,5 +17,4 @@ public class GuitarScaler {
 			System.out.println(note.toString());
 		}
 	}
-
 }
